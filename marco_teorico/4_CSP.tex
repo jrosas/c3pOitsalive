@@ -1,0 +1,41 @@
+\section{Problema de satisfacción de restricciones} \label{sect:CSP}
+
+Problema de las ocho reinas, colorear grafos, Sudoku y muchos otros rompecabezas 
+de lógica, son un campo de investigación de la inteligencia artificial que los
+termino generalizando como problemas de satisfacción de restricciones (CSP de 
+sus siglas en inglés Constraint Solving Programming). Si se revisan estos 
+problemas lo que los compone en general son un conjunto de objetos o 
+características que deben satisfacer un conjunto de restricciones o 
+limitaciones \cite{RN09}.
+
+Una implementación de un CSP necesita 3 componentes:
+\begin{itemize}
+\item{\textbf{Variables:} Son todos los objetos que componen un problema. Por 
+ejemplo en un Sudoku serian las $9x9$ casillas de enteros que lo componen.}
+\item{\textbf{Dominios:} Son los dominios que tienen las variables del problema
+en cuestión. Continuando con el ejemplo del Sudoku serian los enteros del 1 al
+9 para cada casilla.}
+\item{\textbf{Grafo de restricciones:} Es una representación del conjunto de 
+restricciones que busca mostrar la relación entre variables. Para seguir con el
+ejemplo los nodos del grafo representan las casillas del Sudoku y los enlaces 
+entre ellas indican las reglas.}
+\end{itemize}
+
+Un detalle que tienen los CSP es que no consumen mucha memoria ya que iteran 
+sobre los dominios verificando que combinación satisface el problema, aunque 
+esto sea bueno para problemas ``fáciles'' (pocos elementos en el dominio) suele
+tomar mucho tiempo encontrar una solución. Para atacar el problema del tiempo se
+se han detectado patrones que pueden optimizar el cálculo. 
+
+Una estrategia de optimización es saber elegir en que variable instanciar 
+primero, esto se puede decidir viendo que variable tiene más restricciones 
+asociadas y así se instancia la variable más restringida primero, así puede que 
+se encuentre o no la solución más rápido.
+
+Otra estrategia que se tiene es ordenar los los valores del dominio a asignar,
+esto puede descartar muy rápido valores de asignaciones no validas.
+
+Una medida más es determinar en que orden conviene calcular que se satisfagan
+las restricciones, esto hoy en día es muy difícil de computar y entonces lo que
+se hace es dejar del parte del usuario de la herramienta de CSP que coloque las
+restricciones en un orden conveniente para acelerar el cálculo.
