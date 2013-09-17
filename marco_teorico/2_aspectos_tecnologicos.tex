@@ -45,9 +45,9 @@ Como se observa en la figura \ref{fig:archi} el sistema operativo se desglosa de
 
 Una actividad es una clase java que contiene todo el código necesario para realizar una determinada tarea. Las actividades son el componente principal de las aplicaciones Android; una aplicación puede estar compuestas por una o varias actividades que en conjunto desarrollan la funcionalidad de la aplicación. 
 
-Por lo general, las actividades requieren la interacción del usuario. Para lograr esto, la actividad crea en la pantalla una serie de elementos, como campos de textos, botones, formularios, imágenes, entre otros. Estos elementos reciben el nombre de vistas, y son organizados y parametrizados mediante archivos \textit{XML} llamados \textit{layouts}; a pesar de esta disposición ser estática, una actividad puede modificar totalmente las vistas y sus atributos a tiempo de ejecución.
+Por lo general, las actividades requieren la interacción del usuario. Para lograr esto, la actividad crea en la pantalla una serie de elementos, como campos de textos, botones, formularios, imágenes, entre otros. Estos elementos reciben el nombre de vistas, y son organizados y parametrizados mediante archivos \textit{XML} (Extensible Markup Language) llamados \textit{layouts}; a pesar de esta disposición ser estática, una actividad puede modificar totalmente las vistas y sus atributos a tiempo de ejecución.
 
-Cada vez que una aplicación ejecuta una actividad específica, se genera una pila con las actividades relacionadas. Es decir, solo una actividad puede estar en primer plano a la vez, las actividades predecesoras son empiladas en la memoria del teléfono. Cuando una actividad termina o el usuario presiona el botón atrás se pasa la siguiente en la pila. La figura \cite{fig:backstack} ilustra el comportamiento.
+Cada vez que una aplicación ejecuta una actividad específica, se genera una pila con las actividades relacionadas. Es decir, solo una actividad puede estar en primer plano a la vez, las actividades predecesoras son empiladas en la memoria del teléfono. Cuando una actividad termina o el usuario presiona el botón atrás se pasa la siguiente en la pila. La figura \ref{fig:backstack} ilustra el comportamiento.
 
 \begin{figure}[h]
 	\begin{center}
@@ -77,13 +77,14 @@ Durante el desarrollo del proyecto, fue necesario incidir directamente sobre el 
 
 \subsubsection{Drupal}
 
-Drupal es un marco de gestión de contenidos de código abierto escrito en lenguaje \textit{PHP}. En otra palabras, es una interfaz de programación de aplicaciones para crear sistema de gestión de contenidos (\textit{Content Managemement System}, CMS por su siglas en ingles). El núcleo de Drupal provee la elementos necesarios para el funcionamiento de un CMS básico, sin embargo la funcionalidad se puede extender mediante la integración y desarrollo de módulos o paquetes\cite{TV10}.
+Drupal es un marco de gestión de contenidos de código abierto escrito en lenguaje \textit{PHP}. En otra palabras, es una interfaz de programación de aplicaciones para crear sistema de gestión de contenidos (\textit{Content Managemement System}, CMS por su siglas en ingles). Una instalación base del sistema o \textit{el núcleo de Drupal} provee los elementos necesarios para el funcionamiento de un CMS básico, sin embargo, la funcionalidad se puede extender mediante la integración y desarrollo de módulos o paquetes\cite{TV10}.
 
 El sitio \textit{Tuguia.de} fue desarrollado con esta herramienta y mediante la instalación, configuración y elaboración de varios módulos fue implementado un API que permite mediante peticiones HTTP (\textit{Hypertext Transfer Protocol})gestionar el contenido del portal.
 
 \subsubsection{Apache SOLR}
 
+Apache Solr es una plataforma de búsqueda de alto desempeño para sitios web, es de código abierto y esta escrita en lenguaje \textit{Java} y se basa en la biblioteca \textit{Apache Lucene} \cite{APS}. Apache Solr opera como un servicio separado del servidor web y la base de datos, puede incluso llegar a requerir un servidor dedicado para su operación. 
 
-   
+De forma sencilla el funcionamiento de Apache Solr puede ser descrito de la siguiente manera: Mediante archivos \textit{XML} se especifican los contenidos que serán indexados para su posterior búsqueda, estos indices pueden ser vistos como una lista de palabras en la que cada palabra en la lista posee una referencia hacia los documentos que la contienen, cuando se realiza una consulta a Apache Solr se ejecuta una búsqueda sobre las listas y se retornan los elementos que cumplan con el criterio establecido en la consulta.
 
-
+Apache Solr permite realizar búsquedas de texto (\textit{Full-Text Search}) por palabra clave de forma similar al buscador de Google y tiene la capacidad para manejar búsquedas geoespaciales, por lo que en \textit{Tuguia.de}, es ésta la herramienta elegida para realizar las búsquedas y es integrada a Drupal mediante un modulo de código abierto ampliamente configurable.  
