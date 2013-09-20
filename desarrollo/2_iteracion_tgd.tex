@@ -1,0 +1,67 @@
+\section{Tareas de Realizadas en Cada Iteración}
+
+Antes de iniciar cada iteración, se sostenía una reunión entre el Dueño del Producto, el \textit{ScrumMaster} y el Pasante, donde se seleccionaban las actividades a realizar durante \textit{sprint}. Cada actividad se descomponía en tareas y se realizaba un guión sencillo. A continuación se presenta un guión basado en una actividad realizada en el proceso de desarrollo.
+
+\begin{quotation}
+
+Dado que soy un usuario con la aplicación de TGD en Android.
+ 
+Debo ver la página home de la aplicación (Login por ahora).
+
+Al ingresar usuario y contraseña. 
+
+Debo ver una vista con mi nombre completo. 
+
+Tareas: 
+\begin{itemize}
+\item Desarrollo de la funcionalidad de "Login".
+\item Desarrollo y ejecución de las pruebas asociadas.
+\item Refactoring del código desarrollado.
+\end{itemize}
+\end{quotation}
+
+En las secciones siguientes se realizará una descripción del las tareas realizas y los resultados obtenidos en cada una de las ocho iteraciones en las que se desarrolló la aplicación móvil.
+
+\subsection{Primera Iteración}
+
+Por ser este \textit{spring} el comienzo del proyecto, consistió en una investigación con el fin de adquirir conocimientos acerca del funcionamiento de las aplicaciones móviles Android, así como de las metodologías y herramientas necesarias para el desarrollo del proyecto. Además fue necesario profundizar en el funcionamiento del API y sus características.
+
+\subsubsection{Objetivos Planteados}
+A continuación se enumeran los objetivos planteados:
+
+\begin{itemize}
+\item Adquirir conocimientos del funcionamiento y arquitectura del Sistema Operativo Android y de la estructura de las aplicaciones desarrolladas para esta plataforma.
+\item Evaluar las herramientas necesarias para el desarrollo del proyecto.
+\item Investigar los mecanismo para la aplicación de las metodologías TDD y BDD, en el entorno Android.
+\item Analizar las características prestadas por cada uno de los servios prestados por el API de Tuguia.de. 
+\end{itemize}
+
+\subsubsection{Resultados Alcanzados}
+
+En la sección \ref{subsect:Asociadas_movil} referente a las tecnologías asociadas con la aplicación móvil se expone la información recaudada en esta iteración. Luego de analizarla, se preparó en el entorno de trabajo instalando el IDE en la computadora asignada y se  construyeron varias aplicaciones simples que reafirmaran los conceptos.
+
+Para la aplicación de las metodologías se evaluaron varias herramientas entre las que destacan el entorno de pruebas provisto en el SDK y \textit{Robolectric} que es un proyecto de código abierto realizado por terceros.
+
+En el SDK están incluidos todos los elementos necesarios para probar cada aspecto que compone a una aplicación Android, gracias a un entorno de pruebas basado en \textit{JUnit}\footnote{\textit{JUnit:} Es un marco de trabajo para el desarrollo de pruebas sobre aplicaciones Java\cite{JUNIT}}. La ventaja principal de esta herramienta es que al estar embebida no requiere instalar ni aprender ningún complemento externo. Sin embargo, esto trae como desventaja la dependencia de un emulador para su ejecución, lo que retrasa las pruebas en gran medida. \textit{Robolectric} es un marco de trabajo que subsana esta situación, ya que permite simular el entorno Android y ejecutar los casos de prueba directamente en la maquina virtual de Java, no obstante al ser una biblioteca externa implica un aprendizaje extra.
+
+Dadas estas características, se decidió implementar la metodología usando \textit{Robolectric}, ya que se consideró que el tiempo a invertir en aprender la herramienta es inferior al tiempo que se emplearía ejecutando los casos de pruebas en un entorno de trabajo emulado a lo largo de todo el proyecto.
+
+La última fase de esta iteración consistió en el análisis del API de Tuguia.de. Al momento de iniciar la pasantía los recursos disponibles eran los siguiente:
+\begin{itemize}
+\item buscar local: Este servicio se emplea para hacer consultas sobre locales utilizando varios criterios de busqueda, de no ser utilizado ningún parámetro de búsqueda, se devolverán todos los locales activos de Tuguia.de.
+\item buscar comentario: mediante este recurso se pueden obtener los comentarios para uno o mas locales, de no utilizar ningún parámetro de búsqueda, se devolverán todos los comentarios aprobados realizados sobre locales activos de Tuguia.de
+\item buscar taxonomia: A través de esta funcionalidad se obtienen todos los términos de un vocabulario dado dentro de Tuguia.de, por ejemplo, ciudades, categorías, subcategorias, atributos, etc;
+\item user: Mediante este elemento se accede a las funcionalidades que permiten el manejo de usuarios, específicamente a \textit{login}, \textit{logout} y registro.
+\item comentario: Este recurso permite registrar un comentario en Tuguia.de, para su uso es necesario estar conectado como un usuario registrado.
+\item local: Este servicio permite agregar locales al sitio. Al igual que en recurso anterior para su uso es necesario estar conectado como un usuario registrado.
+\end{itemize}
+
+Cada uno de estos servicios fue probado y a pesar de funcionar adecuadamente en el caso de éxito, no disponían de un manejo de errores para el resto de los casos. Esta situación debía ser solventada puesto que representaba un gran riesgo para la aplicación móvil, por lo que se decidió investigar un poco más a fondo el funcionamiento del API. Afortunadamente, esta interfaz contaba con una documentación lo suficientemente extensa que permitió familiarizarse con los módulos que lo componían sin dificultad. Gracias a esto se agregó un manejo de errores básico sin alterar la planificación.
+
+Las respuesta del API eran en formato \textit{JSON}\footnote{\textit{JSON:} \textit{JavaScript Object Notation}, es un estándar para el intercambio de datos ligero y legible\cite{JSON}} lo que representó una ventaja gracias a la facilidad existente  para manejar este lenguaje. sin embargo, estas respuestas debían ser ajustadas a la funcionalidad deseada en la aplicación móvil. Este proceso de ajuste se pospuso y se realizó a medida que fue necesario y de esta forma invertir el menor tiempo posible fuera de la aplicación móvil.
+
+\subsection{Segunda Iteración}
+
+
+\subsubsection{Objetivos Planteados}
+\subsubsection{Resultados Alcanzados}
