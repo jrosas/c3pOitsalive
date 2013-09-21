@@ -83,8 +83,17 @@ En primer lugar se elaboró un mecanismo \textit{cliente} para realizar peticion
 
 En segundo lugar se diseñó y construyó un procedimiento para transformar las respuestas provenientes del API a objetos que pudieran ser manejados con mayor facilidad dentro del entorno de la aplicación. Esto fue posible gracias a la biblioteca GSON, que permite transformar un objeto Java en su representación en JSON y viceversa.
 
-Con estas dos herramientas en funcionamiento se desarrollaron los elementos necesarios para alcanzar los objetivos planteados para la iteración siguiendo el esquema planteado en la figura \ref{img:diagrama_flujo} 
+Con estas dos herramientas en funcionamiento se desarrollaron los elementos necesarios para alcanzar los objetivos planteados para la iteración siguiendo el esquema presentado en la figura \ref{img:diagrama_flujo} 
 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.4]{imagenes/diagrama.png}
+	\end{center}
+	\caption{
+		\label{img:diagrama_flujo}
+		Esquema de trabajo para el desarrollo de funcionalidades en la aplicación móvil
+	}
+\end{figure}
 
 \textbf{Diagrama de desarrollo}
 
@@ -92,11 +101,28 @@ En primer lugar se realizó el \textit{layout}, una interfaz sencilla para la fu
 
 Dadas las características incrementales de la metodología empleada, este flujo de trabajó fue usado repetidamente cada vez que se agregaba una nueva funcionalidad, adaptándolo a las necesidades según el caso y realizando los respectivos casos de prueba.
 
-En el caso del \textit{login}, \textit{registro} la funcionalidad se desarrolló sin un manejo de flujos alternos adecuado, es decir, no se realizó un manejo para los casos de fallo en los que se requiere la participación del usuario. Por otro lado para esta iteración el mecanismo de visualizar la lista de locales construido operaba con una serie de locales simulados sin conectarse a Tuguia.de. En la lista para cada local se muestra la siguiente información: nombre, puntuación, número de comentarios, ciudad, urbanización, subcategoría y en caso de que no posea categoría y la imagen principal de este local.
+En el caso del \textit{login} y el registro la funcionalidad se desarrolló sin un manejo de flujos alternos adecuado, es decir, no se realizó un manejo para los casos de fallo en los que se requiere la participación del usuario. Por otro lado para esta iteración el mecanismo de visualizar la lista de locales construido operaba con una serie de locales simulados sin conectarse a Tuguia.de. En la lista para cada local se muestra la siguiente información: nombre, puntuación, número de comentarios, ciudad, urbanización, subcategoría y en caso de que no posea categoría y la imagen principal de este local. En las figuras 5.3 y 5.4 se puede observar la funcionalidad desarrollada para el \textit{login} y el registro respectivamente.
 
 Un aspecto importante a resaltar es que la información ofrecida de la imagen por el API es el url (\textit{uniform resource locator}); que no es más que la dirección donde se ubica este recurso en Internet. Para acceder a la imagen como tal es necesario realizar una petición a esta dirección para obtenerla. Gracias a este situación y a el gran tamaño de las imágenes manejadas en Tuguia.de el consumo de memoria y de la red de datos es bastante alto. Quedó pendiente para futuras iteraciones mejorar esta condición.
  
-  \textbf{IMAGEN DE LOGIN Y REGISTRO}
+ 
+ \begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{imagenes/login.png}
+  \caption{ \textit{Login} en la aplicación móvil}
+  \label{fig:login}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{imagenes/login_1.png}
+  \caption{Registro de usuarios en la aplicación móvil}
+  \label{fig:register}
+\end{minipage}
+\end{figure}
+
+ 
 \subsection{Tercera Iteración}
 
 En esta iteración se planteó la realización de búsquedas dada una palabra clave y una ubicación y se tenía pendiente elaborar el manejo de casos de flujos alternos de la iteración anterior.
@@ -116,10 +142,19 @@ Se plantearon los siguientes objetivos.
 
 Luego de investigar los mecanismos para la actualización de módulos en Drupal, se hizo un respaldo del sistema y se procedió a actualizar el módulo en cuestión, este proceso resultó ser bastante automatizado y no presentó mayores inconvenientes. No obstante al inspeccionar el módulo, este había sufrido una refactorización completa, por lo que el proceso de migrar la funcionalidad correspondiente al manejo de errores fue extenso pero se pudo lograr efectivamente.
 
-Para implementar la funcionalidad de búsqueda nuevamente se siguió el esquema de presentando en la figura \ref{img:diagrama_flujo}, sin embargo en el API no existía un mecanismo para realizar la búsqueda dado una ubicación o unas coordenadas geográficas, por lo que sólo se implementó esta funcionalidad usando solamente una palabras clave y se integró con el mecanismo de visualizar locales desarrollado en la iteración anterior. El desarrollo necesario para poder realizar las búsquedas dadas una palabra clave y una ubicación o un par de coordenadas se pospuso a una futura iteración.
+Para implementar la funcionalidad de búsqueda nuevamente se siguió el esquema de presentando en la figura \ref{img:diagrama_flujo}, sin embargo en el API no existía un mecanismo para realizar la búsqueda dado una ubicación o unas coordenadas geográficas, por lo que sólo se implementó esta funcionalidad usando solamente una palabras clave y se integró con el mecanismo de visualizar locales desarrollado en la iteración anterior tal y como se muestra en la figura \ref{img:keyword}. El desarrollo necesario para poder realizar las búsquedas dadas una palabra clave y una ubicación o un par de coordenadas se pospuso a una futura iteración.
 
 La funcionalidades pendientes fueron desarrolladas con éxito. 
-  \textbf{IMAGEN DE MANEJO DE FALLOS}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.3]{imagenes/search_keyword.png}
+	\end{center}
+	\caption{
+		\label{img:keyword}
+		Colaje que muestra la funcionalidad de búsqueda dada una palabra clave
+	}
+\end{figure}
 
 \subsection{Cuarta Iteración}
 
@@ -143,7 +178,15 @@ Para implementar la búsqueda por palabra clave y una ubicación se accedió a l
 
 Luego se desarrolló una extensión para este módulo donde se insertó en el campo ubicación, la información contenida, en los atributos ciudad, urbanización y dirección de un local. Cuando se corre el proceso de generación de indices en Apache Solr mediante la interfaz de configuración observado en la figura \ref{img:index_drupal}, el contenido de este campo se segmenta en palabras para que cada una sea tomada como un elemento para la búsqueda.
 
-\textbf{Foto de la configuración de drupal de indexación}
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.3]{imagenes/solr.png}
+	\end{center}
+	\caption{
+		\label{img:index_drupal}
+		Interfaz administrativa del módulo de integración de Drupal con ApacheSolr
+	}
+\end{figure}
 
 Por último fue necesario agregar un nuevo servicio al API, para lograr esto se desarrolló y configuró un complemento, mediante éste, se hizo posible acceder a la nueva funcionalidad de  búsqueda dada una palabra clave y una ubicación. Por ejemplo al pasar las palabras \textit{pizza} y \textit{chacao}, se obtienen todos los locales que en algún atributo tenga la palabra pizza y la palabra chacao en su dirección, ciudad o urbanización.
 
@@ -168,13 +211,18 @@ Como la funcionalidad de búsqueda dada una palabra clave fue implementada en la
 
 En cuanto a la búsqueda por coordenadas, se siguió el flujo de desarrollo planteado en la segunda iteración mostrado en la figura \ref{img:diagrama_flujo}, gracias a este esquema se concluyó con éxito la funcionalidad.
 
-La paginación se implementó modificando el mecanismo para listar locales implementado en el segundo \textit{sprint}, de tal forma de que se muestra un máximo de veinte locales por página. Si se realiza una búsqueda con más de veinte locales en el resultado, se listan los veinte primeros y aparece un botón de siguientes al final de la vista, al ser pulsado, realiza la petición al API solicitando los veinte siguientes y así sucesivamente hasta mostrar todos los resultados de la búsqueda. Siempre es posible retornar a la página de procedencia, pulsando el botón anteriores que realiza una petición por los locales que corresponden.Es botón es mostrado sólo si se ha avanzado de la primera página.
-
-
-
+La paginación se implementó modificando el mecanismo para listar locales implementado en el segundo \textit{sprint}, de tal forma de que se muestra un máximo de veinte locales por página. Si se realiza una búsqueda con más de veinte locales en el resultado, se listan los veinte primeros y aparece un botón de siguientes al final de la vista, al ser pulsado, realiza la petición al API solicitando los veinte siguientes y así sucesivamente hasta mostrar todos los resultados de la búsqueda. Siempre es posible retornar a la página de procedencia pulsando el botón anteriores que realiza una petición por los locales que corresponden.Es botón es mostrado sólo si se ha avanzado de la primera página. En la figura 
+ \ref{img:doblesearch} se ilustra la funcionalidad.
  
-\textbf{FOTO DE BÚSQUEDA CON PAGINADO}
-
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.3]{imagenes/search_doble.png}
+	\end{center}
+	\caption{
+		\label{img:doblesearch}
+		Colaje que muestra la funcionalidad de búsqueda y de paginado. 
+	}
+\end{figure}
 
 \subsection{Sexta Iteración}
 Continuando con la lista de comportamientos, luego de buscar el local de su preferencia usando los diferentes criterios, la siguiente activad que haría un usuario es ver la información detallada de un local, sus fotografías y los comentarios asociadas a este. Esas son las tareas que se desarrollaron en esta iteración. 
@@ -190,11 +238,27 @@ Continuando con la lista de comportamientos, luego de buscar el local de su pref
 
 Para la implementación de estas tres funcionalidades se siguió el flujo de desarrollo empleado en las iteraciones anteriores (figura \ref{img:diagrama_flujo}) y en los tres casos se lograron desarrollar con éxito. A continuación se detallan los aspectos mas relevantes del desarrollo.
 
-En la vista detallada de un local se muestran la siguiente información: nombre, puntuación, número de comentarios, las categorías a las que pertenece, un botón con el número de teléfono que funciona como un acceso directo, al presionarlo lleva directamente a la aplicación usada para hacer llamadas marcando este número y la dirección. Ademas en este \textit{layout} se muestra una lista de cinco comentarios realizados sobre el local y un botón de ver todos los comentarios, que lleva a otra pantalla donde se muestra la lista completa.
+En la vista detallada de un local mostrada en la figura 5.8, se muestra la siguiente información: nombre, puntuación, número de comentarios, las categorías a las que pertenece, un botón con el número de teléfono que funciona como un acceso directo, al presionarlo lleva directamente a la aplicación usada para hacer llamadas marcando este número y la dirección. Ademas en este \textit{layout} se muestra una lista de cinco comentarios realizados sobre el local y un botón de ver todos los comentarios, que lleva a otra pantalla donde se muestra la lista completa.
 
-En Tuguia.de no existe un límite para la longitud de la reseña de un usuario, por lo que en las listas de comentarios, se acotó el texto de la descripción a dos lineas. si se presiona sobre un comentario, se va a una vista que muestra el contenido completo.
+En Tuguia.de no existe un límite para la longitud de la reseña de un usuario, por lo que en las listas de comentarios, se acotó el texto de la descripción a dos lineas. si se presiona sobre un comentario, se va a una vista que muestra el contenido completo tal y como es mostrado en la figura 5.9.
 
-\textbf{IMAGEN DE UN LOCAL, LISTA DE COMENTARIO, COMENTARIO COMPLETO}
+ \begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{imagenes/detalle.png}
+  \caption{Información detallada de un Local}
+  \label{fig:login}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{imagenes/comentario_completo.png}
+  \caption{Comentario Completo}
+  \label{fig:register}
+\end{minipage}%
+
+\end{figure}
+
 \subsection{Séptima Iteración}
 
 En esta iteración se realizó un desarrollo orientado al manejo de las bases de datos internas de la aplicación, con el fin de registrar los usuarios y los locales vistos. De esta manera poder ofrecer un registro de los locales vistos recientemente por el usuario y la posibilidad de almacenar los locales favoritos, además de un manejo de sesión para el usuario en la aplicación.
@@ -231,7 +295,7 @@ Al ser este la última iteración, se enfocó en mejorar la eficiencia del manej
 
 \subsubsection{Resultados Alcanzados}
 
-La funcionalidad correspondiente a los comentarios siguió el esquema planteado y fue desarrollada sin problema, este comportamiento solo esta disponible una vez que el usuario esta autentificado y se puede acceder a él, a través de la vista detallada de un local.
+La funcionalidad correspondiente a los comentarios siguió el esquema planteado y fue desarrollada sin problema, este comportamiento solo esta disponible una vez que el usuario esta autentificado y se puede acceder a él, a través de la vista detallada de un local. Este mecanismo se muestra en la figura \ref{img:comentario}
 
 A lo largo del desarrollo de la aplicación se idearon diversos mecanismos que permitieron optimizar no sólo el uso de la red, si no que también la memoria que consume la aplicación en ejecución.
 
@@ -241,6 +305,14 @@ Por otro lado se modificó también el comportamiento del paginado, buscando red
 
 Como ultima mejora se editaron las respuestas del API para cada recurso eliminado todos los campos que no eran necesarios en la aplicación móvil. De esta forma en cada petición sólo se obtiene la información que es necesaria y mantener la cantidad de información transferida vía la red al mínimo.
 
-
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.4]{imagenes/escribir_coment.png}
+	\end{center}
+	\caption{
+		\label{img:comentario}
+		Interfaz para escribir comentarios.
+	}
+\end{figure}
 
 
