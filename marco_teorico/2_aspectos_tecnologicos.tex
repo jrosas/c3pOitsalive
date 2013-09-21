@@ -8,9 +8,7 @@ A continuación se presentan las diferentes tecnologías y herramientas involucr
 
 \subsubsection{Teléfono Inteligente}
 
-Los teléfonos inteligentes o \textit{smartphones} (nombre en ingles), son teléfonos celulares que ademas de poseer las características habituales de un celular común, permiten acceder a una series de aplicaciones integradas, navegar en Internet, tomar fotografías, grabar vídeos, entre otras funcionalidades que lo asemejan  a una computadora portátil móvil \cite{PCM}.
-
-El objetivo del desarrollo es llevar a Tuguia.de a estos dispositivos.
+Los teléfonos inteligentes o \textit{smartphones}, son teléfonos celulares que ademas de poseer las características habituales de un celular común, permiten acceder a una series de aplicaciones integradas, navegar en Internet, tomar fotografías, grabar vídeos, entre otras funcionalidades que lo asemejan  a una computadora portátil móvil \cite{PCM}. El objetivo del proyecto de pasantía es llevar a Tuguia.de a estos dispositivos.
 
 \subsubsection{Android}
 
@@ -20,7 +18,7 @@ Las aplicaciones nativas se desarrollan, usando el SDK (\textit{Software Develop
 
 \paragraph{Arquitectura del Sistema Android}\mbox{}
 
-Gran parte del éxito de este sistema operativo se debe a su arquitectura. En un inicio el sistema fue pensado solo para ser usado en dispositivos móviles, sin embargo, dada su gran capacidad de adaptación, actualmente ademas de ser usado en celulares, también en televisores, reproductores de automóvil, \textit{netbooks} y diversos equipos electrónicos de todo tipo.
+Gran parte del éxito de este sistema operativo se debe a su arquitectura. En un inicio el sistema fue pensado solo para ser usado en dispositivos móviles, sin embargo, dada su gran capacidad de adaptación, actualmente ademas de ser usado en celulares, también en televisores, reproductores de automóvil, computadores portátiles y diversos equipos electrónicos de todo tipo.
 
 Como se observa en la figura \ref{fig:archi} el sistema operativo se desglosa de la siguiente manera:
 
@@ -44,7 +42,7 @@ Como se observa en la figura \ref{fig:archi} el sistema operativo se desglosa de
 
 \paragraph{Estructura básica de una aplicación Android}\mbox{}
 
-Una actividad es una clase java que contiene todo el código necesario para realizar una determinada tarea. Las actividades son el componente principal de las aplicaciones Android. Una aplicación puede estar compuestas por una o varias actividades que en conjunto desarrollan la funcionalidad de la aplicación. 
+Una actividad es una clase Java que contiene todo el código necesario para realizar una determinada tarea. Las actividades son el componente principal de las aplicaciones Android. Una aplicación puede estar compuestas por una o varias actividades que en conjunto desarrollan la funcionalidad de la aplicación. 
 
 Por lo general, las actividades requieren la interacción del usuario. Para lograr esto, la actividad genera en la pantalla una serie de elementos, como campos de textos, botones, formularios, imágenes, entre otros. Estos elementos reciben el nombre de vistas, y son organizados y parametrizados mediante archivos \textit{XML} (\textit{Extensible Markup Language}) llamados \textit{layouts}. A pesar de que la disposición de las vistas es constantes en los archivos XML, una actividad puede modificar totalmente las vistas y sus atributos a tiempo de ejecución.
 
@@ -68,9 +66,9 @@ Cada vez que una aplicación ejecuta una actividad específica, se genera una pi
 
 Eclipse es un entorno integrado de desarrollo (\textit{Integrated development environment}, IDE por sus siglas en ingles) gratuito y de código abierto. Está escrito en \textit{Java} con el objetivo de realizar aplicaciones en este lenguaje. sin embargo permite la integración con otros como \textit{C, C++, Ada, Haskell, PHP, Python, Ruby}.
 
-Este ambiente de trabajo es recomendado por Google para la construcción de aplicaciones Android, ya que a través de la instalación de un \textit{plugin} distribuido en el sitio oficial, permite integrar en este entorno el soporte necesario para emplear diversas herramientas específicas para Android que facilitan el desarrollo, cuenta con plantillas para las diversas clases básicas, instrumentos para el análisis del desempeño de la aplicación y facilidades para la gestión de emuladores que permiten simular \textit{smartphones} de diversas características y funciones.
+Este ambiente de trabajo es recomendado por Google para la construcción de aplicaciones Android, ya que a través de la instalación de un complemento distribuido en el sitio oficial, permite integrar en este entorno el soporte necesario para emplear diversas herramientas específicas para Android que facilitan el desarrollo. Cuenta con plantillas para las diversas clases básicas, instrumentos para el análisis del desempeño de la aplicación y facilidades para la gestión de emuladores que permiten simular \textit{smartphones} con diversas características y funciones.
 
-Por ser el entorno oficial de desarrollo cuenta con un amplio soporte y el respaldo de la comunidad, por lo que es el ambiente escogido para el desarrollo de Tuguia.de móvil.
+Por ser el entorno oficial de desarrollo posee un amplio soporte y el respaldo de la comunidad, por lo que es el ambiente escogido para implementar Tuguia.de móvil.
 
 \subsection{Tecnologías Asociadas con Tuguia.de} \label{subsect:Asociadas_movil}
 
@@ -86,6 +84,6 @@ El sitio Tuguia.de fue desarrollado con esta herramienta y mediante la instalaci
 
 Apache Solr es una plataforma de búsqueda de alto desempeño para sitios web, es de código abierto, esta escrita en lenguaje \textit{Java} y se basa en la biblioteca \textit{Apache Lucene} \cite{APS}. Apache Solr opera como un servicio separado del servidor web y la base de datos, puede incluso llegar a requerir un servidor dedicado para su operación. 
 
-De forma sencilla el funcionamiento de Apache Solr puede ser descrito de la siguiente manera: Mediante archivos \textit{XML} llamados Documentos, se especifican los contenidos que serán indexados para su posterior búsqueda, estos indices pueden ser vistos como una lista de palabras en la que cada palabra en la lista posee una referencia hacia los elementos que la contienen, cuando se realiza una consulta a Apache Solr se ejecuta una búsqueda sobre las listas y se retornan los elementos que cumplan con el criterio establecido en la consulta.
+De forma sencilla el funcionamiento de Apache Solr puede ser descrito de la siguiente manera: Mediante archivos \textit{XML} llamados Documentos, se especifican los contenidos que serán indexados para su posterior búsqueda, estos índices pueden ser vistos como una lista de palabras en la que cada palabra en la lista posee una referencia hacia los elementos que la contienen, cuando se realiza una consulta a Apache Solr se ejecuta una búsqueda sobre las listas y se retornan los elementos que cumplan con el criterio establecido en la consulta.
 
 Apache Solr permite realizar búsquedas de texto (\textit{Full-Text Search}) por palabra clave de forma similar al buscador de Google y tiene la capacidad para manejar búsquedas geoespaciales, por lo que en Tuguia.de, es ésta la herramienta elegida para realizar las búsquedas y es integrada a Drupal mediante un módulo de código abierto ampliamente configurable.  

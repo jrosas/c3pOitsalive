@@ -16,7 +16,7 @@ Tareas:
 \begin{itemize}
 \item Desarrollo de la funcionalidad de "Login".
 \item Desarrollo y ejecución de las pruebas asociadas.
-\item Refactoring del código desarrollado.
+\item Refactorización del código desarrollado.
 \end{itemize}
 \end{quotation}
 
@@ -24,7 +24,7 @@ En las secciones siguientes se realizará una descripción de las tareas realiza
 
 \subsection{Primera Iteración}
 
-Por ser este \textit{spring} el comienzo del proyecto, consistió en una investigación con el fin de adquirir conocimientos acerca del funcionamiento de las aplicaciones móviles Android, así como de las metodologías y herramientas necesarias para el desarrollo del proyecto. Además fue necesario profundizar en el funcionamiento del API y sus características.
+Por ser este \textit{sprint} inicial del proyecto, consistió en una investigación con el fin de adquirir conocimientos acerca del funcionamiento de las aplicaciones móviles Android, así como de las metodologías y herramientas necesarias para el desarrollo del proyecto. Además fue necesario profundizar en el funcionamiento del API y sus características.
 
 \subsubsection{Objetivos Planteados}
 A continuación se enumeran los objetivos planteados:
@@ -38,7 +38,7 @@ A continuación se enumeran los objetivos planteados:
 
 \subsubsection{Resultados Alcanzados}
 
-En la sección \ref{subsect:Asociadas_movil} referente a las tecnologías asociadas con la aplicación móvil se expone la información recaudada en esta iteración. Luego de analizarla, se preparó en el entorno de trabajo instalando el IDE en la computadora asignada y se  construyeron varias aplicaciones simples que reafirmaran los conceptos.
+En la sección \ref{subsect:Asociadas_movil} referente a las tecnologías asociadas con la aplicación móvil se expone la información recaudada en esta iteración. Luego de analizarla, se preparó  el entorno de trabajo instalando el IDE en la computadora asignada y se  construyeron varias aplicaciones simples que reafirmaran los conceptos adquiridos.
 
 Para la aplicación de las metodologías se evaluaron varias herramientas entre las que destacan el entorno de pruebas provisto en el SDK y \textit{Robolectric} que es un proyecto de código abierto realizado por terceros.
 
@@ -50,10 +50,10 @@ La última fase de esta iteración consistió en el análisis del API de Tuguia.
 
 Al momento de iniciar la pasantía los recursos disponibles eran los siguiente:
 \begin{itemize}
-\item buscar local: Este servicio se emplea para hacer consultas sobre locales utilizando varios criterios de busqueda, de no ser utilizado ningún parámetro de búsqueda, se devolverán todos los locales activos de Tuguia.de.
+\item buscar local: Este servicio se emplea para hacer consultas sobre locales utilizando varios criterios de búsqueda, de no ser utilizado ningún parámetro de búsqueda, se devolverán todos los locales activos de Tuguia.de.
 \item buscar comentario: mediante este recurso se pueden obtener los comentarios para uno o mas locales, de no utilizar ningún parámetro de búsqueda, se devolverán todos los comentarios aprobados realizados sobre locales activos de Tuguia.de
-\item buscar taxonomia: A través de esta funcionalidad se obtienen todos los términos de un vocabulario dado dentro de Tuguia.de, por ejemplo, ciudades, categorías, subcategorias, atributos, etc;
-\item user: Mediante este elemento se accede a las funcionalidades que permiten el manejo de usuarios, específicamente a \textit{login}, \textit{logout} y registro.
+\item buscar taxonomía: A través de esta funcionalidad se obtienen todos los términos de un vocabulario dado dentro de Tuguia.de, por ejemplo, ciudades, categorías, subcategorías, atributos, etc.;
+\item \textit{user}: Mediante este elemento se accede a las funcionalidades que permiten el manejo de usuarios, específicamente a \textit{login}, \textit{logout} y registro.
 \item comentario: Este recurso permite registrar un comentario en Tuguia.de, para su uso es necesario estar conectado como un usuario registrado.
 \item local: Este servicio permite agregar locales al sitio. Al igual que en recurso anterior para su uso es necesario estar conectado como un usuario registrado.
 \end{itemize}
@@ -64,7 +64,7 @@ Las respuesta del API eran en formato \textit{JSON}\footnote{\textit{JSON:} \tex
 
 \subsection{Segunda Iteración}
 
-Luego del trabajo realizado en la primera iteración, se poseían los elementos necesarios para iniciar el desarrollo de la aplicación móvil, así que se inició con login, logout, registro    y una vista sencilla para ver locales.
+Luego del trabajo realizado en la primera iteración, se poseían los elementos necesarios para iniciar el desarrollo de la aplicación móvil, así que se inició con \textit{login}, \textit{logout}, registro y una vista sencilla para ver una lista de locales.
 
 \subsubsection{Objetivos Planteados}
 En la segunda iteración se plantearon los siguientes objetivos:
@@ -81,7 +81,7 @@ Por ser esta la primera iteración de desarrollo fue necesario construir un conj
 
 En primer lugar se elaboró un mecanismo \textit{cliente} para realizar peticiones al API que se ajustasen a las políticas de seguridad de este y que pueda recibir las respuestas en el formato JSON. Este mecanismo debe poder ser configurado para generar cualquier tipo de petición.
 
-En segundo lugar se diseñó y construyó un procedimiento para transformar las respuestas provenientes del API a objetos que pudieran ser manejados con mayor facilidad dentro del entorno de la aplicación. Esto fue posible gracias a la biblioteca GSON, que permite transformar un objeto Java en su representanción en JSON y viceversa.
+En segundo lugar se diseñó y construyó un procedimiento para transformar las respuestas provenientes del API a objetos que pudieran ser manejados con mayor facilidad dentro del entorno de la aplicación. Esto fue posible gracias a la biblioteca GSON, que permite transformar un objeto Java en su representación en JSON y viceversa.
 
 Con estas dos herramientas en funcionamiento se desarrollaron los elementos necesarios para alcanzar los objetivos planteados para la iteración siguiendo el esquema planteado en la figura \ref{img:diagrama_flujo} 
 
@@ -92,14 +92,14 @@ En primer lugar se realizó el \textit{layout}, una interfaz sencilla para la fu
 
 Dadas las características incrementales de la metodología empleada, este flujo de trabajó fue usado repetidamente cada vez que se agregaba una nueva funcionalidad, adaptándolo a las necesidades según el caso y realizando los respectivos casos de prueba.
 
-En el caso del \textit{login}, \textit{registro} la funcionalidad se desarrolló sin un manejo de flujos alternos adecuado, es decir, no se realizó un manejo para los casos de fallo en los que se requiere la participación del usuario. Por otro lado para esta iteración el mecanismo de visualizar la lista de locales construido operaba con una serie de locales simulados sin conectarse a Tuguia.de. En la lista para cada local se muestra la siguiente información: nombre, puntuación, número de comentarios, ciudad, urbanizació, subcategoria y en caso de que no posea categoria y la imagen principal de este local.
+En el caso del \textit{login}, \textit{registro} la funcionalidad se desarrolló sin un manejo de flujos alternos adecuado, es decir, no se realizó un manejo para los casos de fallo en los que se requiere la participación del usuario. Por otro lado para esta iteración el mecanismo de visualizar la lista de locales construido operaba con una serie de locales simulados sin conectarse a Tuguia.de. En la lista para cada local se muestra la siguiente información: nombre, puntuación, número de comentarios, ciudad, urbanización, subcategoría y en caso de que no posea categoría y la imagen principal de este local.
 
 Un aspecto importante a resaltar es que la información ofrecida de la imagen por el API es el url (\textit{uniform resource locator}); que no es más que la dirección donde se ubica este recurso en Internet. Para acceder a la imagen como tal es necesario realizar una petición a esta dirección para obtenerla. Gracias a este situación y a el gran tamaño de las imágenes manejadas en Tuguia.de el consumo de memoria y de la red de datos es bastante alto. Quedó pendiente para futuras iteraciones mejorar esta condición.
  
   \textbf{IMAGEN DE LOGIN Y REGISTRO}
 \subsection{Tercera Iteración}
 
-En esta iteración se planteó la realización de búsquedas dada una palabra clave y una ubicación y se tenía pendiente elaborar el manejo de casos de fallo de la iteración anterior.
+En esta iteración se planteó la realización de búsquedas dada una palabra clave y una ubicación y se tenía pendiente elaborar el manejo de casos de flujos alternos de la iteración anterior.
 
 En este punto del proyecto el módulo del API donde se implementó el manejo de errores, recibió una actualización, por lo que había que instalarla y migrar el manejo de errores como una tarea de mantenimiento.
 
@@ -116,14 +116,14 @@ Se plantearon los siguientes objetivos.
 
 Luego de investigar los mecanismos para la actualización de módulos en Drupal, se hizo un respaldo del sistema y se procedió a actualizar el módulo en cuestión, este proceso resultó ser bastante automatizado y no presentó mayores inconvenientes. No obstante al inspeccionar el módulo, este había sufrido una refactorización completa, por lo que el proceso de migrar la funcionalidad correspondiente al manejo de errores fue extenso pero se pudo lograr efectivamente.
 
-Para implementar la funcionalidad de búsqueda nuevamente se siguió el esquema de presentando en la fig \ref{img:diagrama_flujo}, sin embargo en el API no existía un mecanismo para realizar la búsqueda dado una ubicación o unas coordenadas geográficas, por lo que sólo se implementó esta funcionalidad usando palabras clave y se integró con el mecanismo de visualizar locales desarrollado en la iteración anterior. El desarrollo necesario para poder realizar las busquedas dadas una palabra clave y una ubicación o un par de coordenadas se pasan a la siguiente iteración.
+Para implementar la funcionalidad de búsqueda nuevamente se siguió el esquema de presentando en la figura \ref{img:diagrama_flujo}, sin embargo en el API no existía un mecanismo para realizar la búsqueda dado una ubicación o unas coordenadas geográficas, por lo que sólo se implementó esta funcionalidad usando solamente una palabras clave y se integró con el mecanismo de visualizar locales desarrollado en la iteración anterior. El desarrollo necesario para poder realizar las búsquedas dadas una palabra clave y una ubicación o un par de coordenadas se pospuso a una futura iteración.
 
 La funcionalidades pendientes fueron desarrolladas con éxito. 
   \textbf{IMAGEN DE MANEJO DE FALLOS}
 
 \subsection{Cuarta Iteración}
 
-En esta iteración se dejo hizo una pausa sobre el desarrollo de la aplicación móvil y se realizó un análisis de la tecnología ApacheSolr y su integración con Drupal dadas las deficiencias encontradas en la interción anterior, con el objetivo de poder extender la funcionalidad del API. 
+En esta iteración se dejo hizo una pausa sobre el desarrollo de la aplicación móvil y se realizó un análisis de la tecnología ApacheSolr y su integración con Drupal dadas las deficiencias encontradas en el \textit{sprint} anterior, con el objetivo de poder extender la funcionalidad del API. 
 
 \subsubsection{Objetivos Planteados} 
 \begin{itemize}
@@ -168,16 +168,16 @@ Como la funcionalidad de búsqueda dada una palabra clave fue implementada en la
 
 En cuanto a la búsqueda por coordenadas, se siguió el flujo de desarrollo planteado en la segunda iteración mostrado en la figura \ref{img:diagrama_flujo}, gracias a este esquema se concluyó con éxito la funcionalidad.
 
-La paginación se implementó modificando el mecanismo para listar locales implementado en el segundo \textit{sprint}, de tal forma de que se muestra un máximo de veinte locales por página. Si se realizá una búsqueda con más de veinte locales en el resultado, se listan los veinte primeros y aparece un botón de siguientes al final de la vista, al ser pulsado, realiza la petición al API solicitando los veinte siguientes y así sucesivamente hasta mostrar todos los resultados de la búsqueda. Siempre es posible retornar a la página de procedencia, pulsando el botón anteriores que realiza una petición por los locales que corresponden.Es botón es mostrado sólo si se ha avanzado de la primera página.
+La paginación se implementó modificando el mecanismo para listar locales implementado en el segundo \textit{sprint}, de tal forma de que se muestra un máximo de veinte locales por página. Si se realiza una búsqueda con más de veinte locales en el resultado, se listan los veinte primeros y aparece un botón de siguientes al final de la vista, al ser pulsado, realiza la petición al API solicitando los veinte siguientes y así sucesivamente hasta mostrar todos los resultados de la búsqueda. Siempre es posible retornar a la página de procedencia, pulsando el botón anteriores que realiza una petición por los locales que corresponden.Es botón es mostrado sólo si se ha avanzado de la primera página.
 
 
 
  
-\textbf{FOTO DE BUSQUEDA CON PAGINADO}
+\textbf{FOTO DE BÚSQUEDA CON PAGINADO}
 
 
 \subsection{Sexta Iteración}
-Continuando con la lista de comportamientos, luego de buscar el local de su preferencia usando los diferentes criterios, la siguiente activad que haría un usuario es ver la información detallada de un local, sus fotografias y los comentarios asociadas a este. Esas son las tareas que se desarrollaron en esta iteración. 
+Continuando con la lista de comportamientos, luego de buscar el local de su preferencia usando los diferentes criterios, la siguiente activad que haría un usuario es ver la información detallada de un local, sus fotografías y los comentarios asociadas a este. Esas son las tareas que se desarrollaron en esta iteración. 
 \subsubsection{Objetivos Planteados} 
 
 \begin{itemize}
@@ -190,7 +190,7 @@ Continuando con la lista de comportamientos, luego de buscar el local de su pref
 
 Para la implementación de estas tres funcionalidades se siguió el flujo de desarrollo empleado en las iteraciones anteriores (figura \ref{img:diagrama_flujo}) y en los tres casos se lograron desarrollar con éxito. A continuación se detallan los aspectos mas relevantes del desarrollo.
 
-En la vista detallada de un local se muestran la siguiente información: nombre, puntuación, número de comentarios, las categorias a las que pertenece, un botón con el número de teléfono que funciona como un acceso directo, al presionarlo lleva directamente a la aplicación usada para hacer llamadas marcando este número y la dirección. Ademas en este \textit{layout} se muestra una lista de cinco comentarios realizados sobre el local y un botón de ver todos los comentarios, que lleva a otra pantalla donde se muestra la lista completa.
+En la vista detallada de un local se muestran la siguiente información: nombre, puntuación, número de comentarios, las categorías a las que pertenece, un botón con el número de teléfono que funciona como un acceso directo, al presionarlo lleva directamente a la aplicación usada para hacer llamadas marcando este número y la dirección. Ademas en este \textit{layout} se muestra una lista de cinco comentarios realizados sobre el local y un botón de ver todos los comentarios, que lleva a otra pantalla donde se muestra la lista completa.
 
 En Tuguia.de no existe un límite para la longitud de la reseña de un usuario, por lo que en las listas de comentarios, se acotó el texto de la descripción a dos lineas. si se presiona sobre un comentario, se va a una vista que muestra el contenido completo.
 
@@ -202,19 +202,19 @@ En esta iteración se realizó un desarrollo orientado al manejo de las bases de
 \subsubsection{Objetivos Planteados} 
 
 \begin{itemize}
-\item Crear el módelo de datos necesario para almacenar locales y usuarios en una base de datos de la aplicación
+\item Crear el modelo de datos necesario para almacenar locales y usuarios en una base de datos de la aplicación
 \item Construir la funcionalidad que permita almacenar automáticamente los locales recientemente vistos por el usuario.
 \item Implementar la funcionalidad para que los usuarios pueden almacenar sus locales favoritos.
-\item Desarrollar un manejo de sesión para que una instacia de la aplicación pueda ser usada por múltiples usuarios. 
+\item Desarrollar un manejo de sesión para que una instancia de la aplicación pueda ser usada por múltiples usuarios. 
 \end{itemize}
 
 \subsubsection{Resultados Alcanzados}
 
 Gracias a la base de datos SQlite embebida dentro del sistema operativo Android, se disponía de todos los elementos necesarios para almacenar los locales. Se tomó la decisión de crear dos tablas independientes, una para los locales recientes y la segunda para los favoritos, a pesar de q ambas manejan los mismos atributos.
 
-Esta decisión fue tomada para facilitar el manejo de las operaciones sobre estas ya que a pesar de que manejan la misma información el comportamiento es distinto, tambien se eligió esta opción de almacenar los locales en tablas diferentes, para minimizar el tamaño de la base de datos. En una sola tabla se hubiese requerido una columna extra que identificase los locales recientes y los favoritos, esta columna adicional a la larga podría representar mas espacio, que el costo por mantener dos tablas separadas.
+Esta decisión fue tomada para facilitar el manejo de las operaciones sobre estas ya que a pesar de que manejan la misma información el comportamiento es distinto, también se eligió esta opción de almacenar los locales en tablas diferentes, para minimizar el tamaño de la base de datos. En una sola tabla se hubiese requerido una columna extra que identificase los locales recientes y los favoritos, esta columna adicional a la larga podría representar mas espacio, que el costo por mantener dos tablas separadas.
 
-Cuando se visualiza la información detallada de un local este es agregado en la tabla de recientes automaticamente. Ademas en este layout se dispuso de un botón que permite que el usuario identifique un local como favoritos. Para que tener acceso a esta funcionalidad los usuarios deben haber sido autentificados pasando exitosamente por el proceso de \textit{login}. De esta forma todos los locales almacenados en la aplicación son marcados con un identificador único correspondiente al usuario autentificado que este usando la aplicación en ese momento. 
+Cuando se visualiza la información detallada de un local este es agregado en la tabla de recientes automáticamente. Ademas en este layout se dispuso de un botón que permite que el usuario identifique un local como favoritos. Para que tener acceso a esta funcionalidad los usuarios deben haber sido autentificados pasando exitosamente por el proceso de \textit{login}. De esta forma todos los locales almacenados en la aplicación son marcados con un identificador único correspondiente al usuario autentificado que este usando la aplicación en ese momento. 
 
 Otro aspecto importante de la gestión de sesión que se implementó fue el manejo de \textit{cookies}\footnote{\textit{Cookies}: pequeños fragmentos de información enviados al servidor en cada petición realizada} ya que este mecanismo permite que no sólo se esté autentificado en la aplicación móvil, sino que también a través del envío de un identificador único de usuario en un \textit{cookie}, se puede interactuar con el sitio web como si este nos hubiera autentificado.
 
@@ -239,7 +239,7 @@ La primera mejora es la integración de la biblioteca de manejo de imágenes \te
 
 Por otro lado se modificó también el comportamiento del paginado, buscando reducir el uso de la red de datos. Se implementó un mecanismo para guardar en archivos de texto las paginas de resultado. De esta forma al moverse entre las páginas, se verifica si existe un archivo que la contenga, antes de hacer una petición al API para obtenerla. Esto enfoque no es solo mas eficiente sino que permite un desplazamiento más fluido dentro de la aplicación.
 
-Como ultima mejora se editaron las respuestas del API para cada recurso eliminado todos los campos que no eran necesarios en la aplicación móvil. De esta forma en cada petición sólo se obtiene la información que es necesaria y mantener la cantidad de información transferida via la red al minimo.
+Como ultima mejora se editaron las respuestas del API para cada recurso eliminado todos los campos que no eran necesarios en la aplicación móvil. De esta forma en cada petición sólo se obtiene la información que es necesaria y mantener la cantidad de información transferida vía la red al mínimo.
 
 
 
