@@ -95,28 +95,31 @@ En primer lugar se realizó el \textit{layout}, una interfaz sencilla para la fu
 
 Dadas las características incrementales de la metodología empleada, este flujo de trabajó fue usado repetidamente cada vez que se agregaba una nueva funcionalidad, adaptándolo a las necesidades según el caso y realizando los respectivos casos de prueba.
 
-En el caso del \textit{login} y el registro la funcionalidad se desarrolló sin realizar validaciones de contenido y con un manejo de errores incompleto, es decir, no se realizó un la verficación de los casos de fallo en los que se requiere la participación del usuario. Por otro lado para esta iteración el mecanismo de visualizar la lista de locales construido operaba con una serie de locales simulados sin conectarse a Tuguia.de. Para cada elemento de la lista de locales se muestra la siguiente información: nombre, imagen principal, puntuación, número de comentarios, ciudad, urbanización, subcategoría, si este último atributo no estaba disponible, en su lugar se muestra la categoría. En las figuras 5.4 y 5.5 se puede observar la funcionalidad desarrollada para el \textit{login} y el registro respectivamente.
-
-Un aspecto importante a resaltar es que la información ofrecida de la imagen por el API es el url (\textit{uniform resource locator}); que no es más que la dirección donde se ubica este recurso en Internet. Para acceder a la imagen es necesario realizar una petición a esta dirección para obtenerla. Gracias a este situación y al gran tamaño de las imágenes manejadas en Tuguia.de el consumo de memoria y de la red de datos es bastante alto. Quedó pendiente para futuras iteraciones mejorar esta condición.
- 
- 
- \begin{figure}
-\centering
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=.6\linewidth]{imagenes/login.png}
-  \caption{ \textit{Login} en la aplicación móvil}
-  \label{fig:login}
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=.6\linewidth]{imagenes/login_1.png}
-  \caption{Registro de usuarios en la aplicación móvil}
-  \label{fig:register}
-\end{minipage}
+En el caso del \textit{login} y el registro la funcionalidad se desarrolló sin realizar validaciones de contenido y con un manejo de errores incompleto, es decir, no se realizó un la verficación de los casos de fallo en los que se requiere la participación del usuario. Por otro lado para esta iteración el mecanismo de visualizar la lista de locales construido operaba con una serie de locales simulados sin conectarse a Tuguia.de. Para cada elemento de la lista de locales se muestra la siguiente información: nombre, imagen principal, puntuación, número de comentarios, ciudad, urbanización, subcategoría, si este último atributo no estaba disponible, en su lugar se muestra la categoría. En las figuras \ref{fig:login} y \ref{fig:register} se puede observar la funcionalidad desarrollada para el \textit{login} y el registro respectivamente.
+\\
+\\
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.55]{imagenes/login.png}
+	\end{center}
+	\caption{
+		\label{fig:login}
+		\textit{Login} en la aplicación móvil
+	}
 \end{figure}
 
- 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.5]{imagenes/login_1.png}
+	\end{center}
+	\caption{
+		\label{fig:register}
+		Registro de usuarios en la aplicación móvil
+	}
+\end{figure}
+
+Un aspecto importante a resaltar es que la información ofrecida de la imagen por el API es el url (\textit{uniform resource locator}); que no es más que la dirección donde se ubica este recurso en Internet. Para acceder a la imagen es necesario realizar una petición a esta dirección para obtenerla. Gracias a este situación y al gran tamaño de las imágenes manejadas en Tuguia.de el consumo de memoria y de la red de datos es bastante alto. Quedó pendiente para futuras iteraciones mejorar esta condición. 
+  
 \subsection{Tercera Iteración}
 
 En esta iteración se planteó implementar búsquedas sobre los locales de Tuguia.de dadas una palabra clave y una ubicación. Además se tenía pendiente elaborar el manejo de errores de la iteración anterior.
@@ -153,7 +156,6 @@ La funcionalidades pendientes fueron desarrolladas con éxito.
 \subsection{Cuarta Iteración}
 
 En esta iteración se hizo una pausa sobre el desarrollo de la aplicación móvil y se realizó un análisis de la tecnología ApacheSolr y su integración con Drupal dadas las deficiencias encontradas en el \textit{sprint} anterior, con el objetivo de poder extender la funcionalidad del API. 
-
 \subsubsection{Objetivos Planteados} 
 A continuación se enumeran los objetivos planteados para la cuarta iteración:
 \begin{itemize}
@@ -212,7 +214,7 @@ La paginación se implementó modificando el mecanismo para listar locales const
  
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[scale=0.38]{imagenes/search_doble.png}
+		\includegraphics[scale=0.39]{imagenes/search_doble.png}
 	\end{center}
 	\caption{
 		\label{img:doblesearch}
@@ -234,26 +236,30 @@ En la sexta iteración se establecieron los siguientes objetivos:
 
 Para la implementación de estas tres funcionalidades se siguió el flujo de desarrollo empleado en las iteraciones anteriores (figura \ref{img:diagrama_flujo}) y en los tres casos se lograron desarrollar con éxito. A continuación se detallan los aspectos mas relevantes del desarrollo.
 
-En la vista detallada de un local mostrada en la figura 5.9, se muestra la siguiente información: nombre, puntuación, número de comentarios, las categorías a las que pertenece, un botón con el número de teléfono que funciona como un acceso directo, al presionarlo lleva directamente a la aplicación usada para hacer llamadas marcando este número y la dirección. Ademas en este \textit{layout} se muestra una lista de cinco comentarios realizados sobre el local y un botón de ver todos los comentarios, que lleva a otra pantalla donde se muestra la lista completa.
-
-En Tuguia.de no existe un límite para la longitud de la reseña de un usuario, por lo que en las listas de comentarios, se acotó el texto de la descripción a dos lineas. Si se presiona sobre un comentario, se va a una vista que muestra el contenido completo tal y como es mostrado en la figura 5.10.
-
- \begin{figure}
-\centering
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=.6\linewidth]{imagenes/detalle.png}
-  \caption{Vista detallada de un local}
-  \label{fig:detalle_local}
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=.6\linewidth]{imagenes/comentario_completo.png}
-  \caption{Vista de un comentario completo}
-  \label{fig:comentario_full}
-\end{minipage}%
-
+En la vista detallada de un local observada en la figura \ref{fig:detalle_local}, se muestra la siguiente información: nombre, puntuación, número de comentarios, las categorías a las que pertenece, un botón con el número de teléfono que funciona como un acceso directo, al presionarlo lleva directamente a la aplicación usada para hacer llamadas marcando este número y la dirección. Ademas en este \textit{layout} se muestra una lista de cinco comentarios realizados sobre el local y un botón de ver todos los comentarios, que lleva a otra pantalla donde se muestra la lista completa.
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.5]{imagenes/detalle.png}
+	\end{center}
+	\caption{
+		\label{fig:detalle_local}
+		Vista detallada de un local en la aplicación móvil.
+	}
 \end{figure}
+\\
+
+En Tuguia.de no existe un límite para la longitud de la reseña de un usuario, por lo que en las listas de comentarios, se acotó el texto de la descripción a dos lineas. Si se presiona sobre un comentario, se va a una vista que muestra el contenido completo tal y como es mostrado en la figura \ref{fig:comentario_full}.
+\\
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.5]{imagenes/comentario_completo.png}
+	\end{center}
+	\caption{
+		\label{fig:comentario_full}
+		Vista de un comentario completo en la aplicación móvil.
+	}
+\end{figure}
+
 
 \subsection{Séptima Iteración}
 
@@ -295,7 +301,7 @@ La funcionalidad correspondiente a los comentarios siguió el esquema planteado 
 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[scale=0.4]{imagenes/escribir_coment.png}
+		\includegraphics[scale=0.5]{imagenes/escribir_coment.png}
 	\end{center}
 	\caption{
 		\label{img:comentario}
