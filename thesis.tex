@@ -117,7 +117,7 @@
 \makeglossaries
 
 % Incluye el glosario
-%\input{apendices/glosario.tex}
+%\input{apendices/acronyms}
 
 % Para crear la hoja escaneada de las firmas
 \usepackage[absolute]{textpos}
@@ -179,7 +179,7 @@
 \input{intro/dedicatoria.tex}
 
 % Pagina de agradecimientos (opcional)
-\input{intro/agradecimientos.tex}
+%\input{intro/agradecimientos.tex}
 
 % Crea la tabla de contenidos
 \tableofcontents
@@ -187,11 +187,16 @@
 % Crea la lista de cuadros
 %\listoftables
 
-% Crea la lista de figuras
-%\listoffigures
+%Crea la lista de figuras
+\listoffigures
 
 % Crea la lista de codigos fuentes
 %\lstlistoflistings
+\input{apendices/acronyms.tex}
+
+% Crea la lista de abreviaturas
+%\printglossary
+%\printglossaries
 
 \clearpage
 
@@ -243,7 +248,7 @@
 %\input{conclusiones/conclusiones.tex}
 
 % Crea el glosario 
-\makeglossaries
+%\makeglossaries
 %\printglossaries
 
 % Establece las citas y bibliografia
@@ -256,6 +261,6 @@
 %\input{apendices/Ejemplos_del_lenguaje.tex}
 %\input{apendices/Gramaticas.tex}
 
-\printglossary
+
 
 \end{document}
